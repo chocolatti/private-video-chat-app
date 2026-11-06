@@ -9,11 +9,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+
+        <h1>A Shared Video Chat Room for Three</h1>
         <div id="main">
             <input type="text" id="roomName">
             <button id="connect">connect!</button>
-            <div id="videoStuff"></div>
         </div>
-    </body>
+
+    <div id="videoStuff">
+        <div class="video-box" id="local">
+            <p>YOU</p>
+        </div>
+
+        <div class="video-box" id="remote1">
+            <p>Waiting for participant</p>
+        </div>
+
+        <div class="video-box" id="remote2">
+            <p>Waiting for participant</p>
+        </div>
+    </div>
     <script src="sketch.js"></script>
+    </body>
 </html>
