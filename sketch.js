@@ -19,17 +19,7 @@ function setup() {
 }
 
 function connectionStuff(roomName) {
-<<<<<<< HEAD
-    myVideo = createCapture(constraints, 
-      function(stream) {
-        let p5l = new p5LiveMedia(this, "CAPTURE", stream, roomName);
-        p5l.on('stream', gotStream);
-      }
-    );  
-    myVideo.muted = true;     
-=======
     myVideo = createCapture(VIDEO);
->>>>>>> a358645 (change it to three people and edit the layout)
     myVideo.hide();
 
     let constraints = {
