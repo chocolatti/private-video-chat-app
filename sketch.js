@@ -54,22 +54,28 @@ function draw() {
 
 // We got a new stream!
 function gotStream(stream, id) {
+  console.log("Got a new stream from id: " + id);
 
-
-  if (otherVideo != null && otherVideo.length >= 2) {
+  if (otherVideo.length >= 2) {
     stream.remove();
-    console.log("Already have 2 streams, ignoring this one");
+    console.log("both remote vide slots are full, ignoring incoming stream");
     return;
   }
 
-  let slot = otherVideo == null ? 'remote1' : 'remote2';
+  let slot;
+  if (otherVideo.some(person => person.slot === 'remote1')) {
+    slot = 'remote2';
+  } else {
+    slot = 'remote1';
+  }
+  
   let container = document.getElementById(slot);
-  container.innerHTML = '';
 
-  otherVideo = otherVideo || [];
-  otherVideo.push(stream);
   stream.parent(container);
   stream.elt.autoplay = true;
   stream.elt.playsInline = true;
   stream.elt.muted = false;
+
+  otherVideo.push({id: id, stream: stream, slot: slot});
+  console.log("Partcipant added in: " + slot);
 }

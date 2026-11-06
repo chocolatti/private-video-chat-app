@@ -1,59 +1,75 @@
-body, html {
-    background-color: lightblue;
-}
 
 body {
     margin: 0;
-    padding: 50px 8%;
-    background: #f3f1e9;
-    color: #292c25;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-h1 {
-    font-size: 48px;
-    margin-bottom: 5px;
-    letter-spacing: -2px;
-}
-
-button {
-    padding: 12px 22px;
-    background: #78876b;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Mono', monospace;
-}
-
-button:hover {
-    background: #59694e;
+    background-color: #173c32;
+    color: #fff8e9;
+    font-family: Georgia, serif;
 }
 
 #main {
     min-height: 100vh;
     width: 100%;
+    padding: 25px 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.christmas-title {
+    margin: 5px 0 8px;
+    font-size: 42px;
+}
+
+.subtitle {
+    margin: 0 0 20px;
+}
+
+input {
+    padding: 12px 15px;
+    border: 1px solid #d8b978;
+    border-radius: 6px;
+    background: #fff8e9;
+    font-size: 14px;
+}
+
+button {
+    padding: 12px 20px;
+    margin-left: 8px;
+    background: #a52d35;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #c4474e;
 }
 
 #videoStuff {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 22px;
     width: 95%;
     max-width: 1500px;
-    margin: 30px auto;
+    margin: 0 auto;
 }
 
 .video-box {
-    width: 100%;
-    min-width: 0;
-    aspect-ratio: 4 / 3;
     position: relative;
-    background: #333;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #e8ddc8;
+    border: 4px solid #d8b978;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
+
 
 .video-box canvas,
 .video-box video {
@@ -66,16 +82,66 @@ button:hover {
     object-fit: cover;
 }
 
+
 .video-box p {
     position: absolute;
-    top: 5px;
-    left: 10px;
+    top: 12px;
+    left: 12px;
+    z-index: 5;
+    margin: 0;
+    padding: 7px 12px;
     color: white;
-    z-index: 2;
+    background: rgba(23, 60, 50, 0.85);
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+
+.avatar {
+    position: absolute;
+    z-index: 6;
+    bottom: 12px;
+    right: 12px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+
+#main::before {
+    content: "❄     ✧       ❄        ✦       ❄";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 22px;
+    letter-spacing: 35px;
+    pointer-events: none;
+}
+
+#main::after {
+    content: "✦       ❄       ✧       ❄";
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 20px;
+    letter-spacing: 35px;
+    pointer-events: none;
 }
 
 @media (max-width: 700px) {
     #videoStuff {
         grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .christmas-title {
+        font-size: 30px;
     }
 }
